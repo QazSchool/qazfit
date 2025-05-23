@@ -1,0 +1,894 @@
+/* ===== GRUNDLÄGGANDE STILAR ===== */
+/* Återställer standardmarginaler och padding för alla element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inkluderar padding och border i elementets totala bredd */
+}
+
+/* Grundläggande typografi och färg för hela sidan */
+body {
+    font-family: 'Inter', sans-serif; /* Använder Inter som typsnitt */
+    line-height: 1.6; /* Radavstånd för bättre läsbarhet */
+    color: #333; /* Mörkgrå textfärg */
+}
+
+/* Container för hela sidan, säkerställer minsta höjd för fullskärm */
+.page-container {
+    min-height: 100vh; /* Minst hela skärmens höjd */
+    display: flex;
+    flex-direction: column; /* Staplar innehållet vertikalt */
+}
+
+/* Centrerad container med maxbredd */
+.container {
+    max-width: 1200px; /* Maxbredd för innehållet */
+    margin: 0 auto; /* Centrerar containern */
+    padding: 0 20px; /* Sidopadding för att undvika att innehåll ligger mot kanten */
+}
+
+/* Responsiva bilder */
+img {
+    max-width: 100%; /* Bilder blir aldrig bredare än deras container */
+    height: auto; /* Behåller bildens proportioner */
+    display: block; /* Tar bort extra utrymme under bilder */
+}
+
+/* ===== HEADER OCH NAVIGATION ===== */
+/* Huvudheader med svart bakgrund */
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky; /* Header fastnar i toppen vid scrollning */
+    top: 0;
+    z-index: 1000; /* Säkerställer att headern ligger ovanpå annat innehåll */
+}
+
+/* Flexbox-layout för header-innehållet */
+.header .container {
+    display: flex;
+    justify-content: space-between; /* Placerar logo och navigation på varsin sida */
+    align-items: center; /* Centrerar vertikalt */
+}
+
+/* Logotyp-styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ===== CSS-ONLY MOBILMENY ===== */
+/* Döljer checkbox som används för att styra mobilmenyn */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger-menyknapp (visas endast på mobil) */
+.menu-button {
+    display: none; /* Döljs som standard, visas på mobil via media query */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* De tre strecken i hamburger-ikonen */
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: 0.3s; /* Animerar förändringen när menyn öppnas/stängs */
+    display: block;
+}
+
+/* ===== HUVUDNAVIGATION ===== */
+/* Navigationslänkar i en rad */
+.nav {
+    display: flex;
+    gap: 2rem; /* Mellanrum mellan länkar */
+}
+
+/* Styling för navigationslänkar */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative; /* För understrykningseffekten */
+    transition: color 0.3s ease;
+}
+
+/* Hover-effekt för länkar */
+.nav-link:hover {
+    color: #dc2626; /* Röd färg vid hover */
+}
+
+/* Aktiv länk (nuvarande sida) */
+.nav-link.active {
+    color: #dc2626;
+}
+
+/* Understrykningseffekt för länkar */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Börjar med 0 bredd */
+    height: 2px;
+    background-color: #dc2626;
+    transition: width 0.3s ease; /* Animerar bredden */
+}
+
+/* Visar understrykning vid hover och för aktiv länk */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%; /* Full bredd vid hover/aktiv */
+}
+
+/* ===== MOBILANPASSAD NAVIGATION ===== */
+@media (max-width: 768px) {
+    /* Visar hamburger-knappen på mobil */
+    .menu-button {
+        display: flex;
+    }
+
+    /* Fullskärms-navigation för mobil */
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Börjar utanför skärmen */
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        flex-direction: column; /* Staplar länkar vertikalt */
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: left 0.3s ease; /* Animerar in/ut */
+        z-index: 999;
+    }
+
+    /* Visar menyn när checkboxen är markerad */
+    .menu-toggle:checked ~ .nav {
+        left: 0; /* Flyttar in menyn på skärmen */
+    }
+
+    /* Animerar första strecket i hamburger-ikonen till ett kryss */
+    .menu-toggle:checked ~ .menu-button .hamburger:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    /* Döljer mellersta strecket */
+    .menu-toggle:checked ~ .menu-button .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    /* Animerar sista strecket i hamburger-ikonen till ett kryss */
+    .menu-toggle:checked ~ .menu-button .hamburger:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Större länkar på mobil för bättre touch-yta */
+    .nav-link {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+/* ===== HERO-SEKTION ===== */
+/* Mörk bakgrund för hero-sektionen */
+.hero {
+    background-color: #111827;
+    color: #fff;
+    padding: 4rem 0;
+}
+
+/* Grid-layout för hero-innehållet */
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr; /* En kolumn på mobil */
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Centrerad text i hero-sektionen */
+.hero-content {
+    text-align: center;
+}
+
+/* Stor rubrik i hero-sektionen */
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2; /* Tätare radavstånd för rubriker */
+}
+
+/* Beskrivande text i hero-sektionen */
+.hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9; /* Lite transparent för kontrast mot rubriken */
+}
+
+/* Container för hero-bilden */
+.hero-image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Hero-bild med fast höjd */
+.hero-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Behåller proportioner och fyller utrymmet */
+}
+
+/* Call-to-action knapp */
+.cta-button {
+    display: inline-block;
+    background-color: #dc2626; /* Röd färg */
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Mörkare röd vid hover */
+.cta-button:hover {
+    background-color: #b91c1c;
+}
+
+/* ===== FEATURES-SEKTION ===== */
+/* Vit bakgrund och padding för features-sektionen */
+.features {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+/* Stor centrerad sektionsrubrik */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #111827;
+}
+
+/* Vänsterjusterad sektionsrubrik för vissa sektioner */
+.section-title-left {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #111827;
+}
+
+/* Responsivt rutnät för features */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Automatiskt antal kolumner baserat på bredd */
+    gap: 2rem;
+}
+
+/* Kort för varje feature */
+.feature-card {
+    background-color: #f9fafb; /* Ljusgrå bakgrund */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease; /* Animerar hover-effekt */
+}
+
+/* Lyft-effekt vid hover */
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Stor ikon för varje feature */
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Rubrik för varje feature */
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+/* Beskrivande text för varje feature */
+.feature-text {
+    color: #6b7280; /* Ljusare grå för brödtext */
+    line-height: 1.6;
+}
+
+/* ===== CLASSES-SEKTION ===== */
+/* Ljusgrå bakgrund för classes-sektionen */
+.classes {
+    padding: 4rem 0;
+    background-color: #f9fafb;
+}
+
+/* Responsivt rutnät för träningspass */
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Kort för varje träningspass */
+.class-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtil skugga */
+    transition: transform 0.3s ease;
+}
+
+/* Lyft-effekt vid hover */
+.class-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Rubrik för varje träningspass */
+.class-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+/* Beskrivande text för varje träningspass */
+.class-text {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Länk för att läsa mer */
+.class-link {
+    color: #dc2626;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Understrykning vid hover */
+.class-link:hover {
+    color: #b91c1c;
+    text-decoration: underline;
+}
+
+/* ===== SIDHUVUD FÖR UNDERSIDOR ===== */
+/* Mörk bakgrund för sidhuvud */
+.page-header {
+    background-color: #111827;
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+/* Stor sidtitel */
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Beskrivande underrubrik */
+.page-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== OM OSS-SEKTION ===== */
+/* Padding för om oss-sektionen */
+.about-section {
+    padding: 4rem 0;
+}
+
+/* Grid-layout för om oss-innehållet */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr; /* En kolumn på mobil */
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Brödtext i om oss-sektionen */
+.about-paragraph {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.7; /* Större radavstånd för längre texter */
+}
+
+/* Container för om oss-bilden */
+.about-image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Om oss-bild med fast höjd */
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* ===== TEAM-SEKTION ===== */
+/* Ljusgrå bakgrund för team-sektionen */
+.team-section {
+    padding: 4rem 0;
+    background-color: #f9fafb;
+}
+
+/* Responsivt rutnät för teammedlemmar */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Kort för varje teammedlem */
+.team-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Lyft-effekt vid hover */
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Container för teammedlemmens bild */
+.team-image {
+    margin-bottom: 1.5rem;
+}
+
+/* Rund bild för teammedlemmar */
+.team-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Cirkulär bild */
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Namn på teammedlem */
+.team-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+/* Roll/titel för teammedlem */
+.team-role {
+    color: #dc2626; /* Röd färg för att framhäva */
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Beskrivning av teammedlem */
+.team-bio {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* ===== TJÄNSTER-SEKTION ===== */
+/* Padding för tjänster-sektionen */
+.services-section {
+    padding: 4rem 0;
+}
+
+/* Responsivt rutnät för tjänster */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Kort för varje tjänst */
+.service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Döljer bild som sticker utanför */
+    transition: transform 0.3s ease;
+}
+
+/* Lyft-effekt vid hover */
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Bild för varje tjänst */
+.service-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Innehåll för varje tjänst */
+.service-content {
+    padding: 2rem;
+}
+
+/* Rubrik för varje tjänst */
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+/* Beskrivande text för varje tjänst */
+.service-text {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Schema/tider för varje tjänst */
+.service-schedule {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* ===== MEDLEMSKAP-SEKTION ===== */
+/* Ljusgrå bakgrund för medlemskap-sektionen */
+.membership-section {
+    padding: 4rem 0;
+    background-color: #f9fafb;
+}
+
+/* Responsivt rutnät för medlemskap */
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Kort för varje medlemskap */
+.membership-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* För populär-taggen */
+    transition: transform 0.3s ease;
+}
+
+/* Lyft-effekt vid hover */
+.membership-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Framhävt kort för populäraste medlemskapet */
+.membership-card.popular {
+    border: 2px solid #dc2626;
+    transform: scale(1.05); /* Lite större */
+}
+
+/* Tagg för populäraste medlemskapet */
+.popular-tag {
+    background-color: #dc2626;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%); /* Centrerar taggen */
+}
+
+/* Rubrik för varje medlemskap */
+.membership-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+/* Pris för varje medlemskap */
+.membership-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 1.5rem;
+}
+
+/* Lista med funktioner för varje medlemskap */
+.membership-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Varje punkt i funktionslistan */
+.membership-features li {
+    padding: 0.5rem 0;
+    color: #6b7280;
+    position: relative;
+    padding-left: 1.5rem; /* Utrymme för checkmark */
+}
+
+/* Checkmark före varje punkt */
+.membership-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* Knapp för att bli medlem */
+.membership-button {
+    display: inline-block;
+    background-color: #dc2626;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Mörkare röd vid hover */
+.membership-button:hover {
+    background-color: #b91c1c;
+}
+
+/* ===== KONTAKT-SEKTION ===== */
+/* Padding för kontakt-sektionen */
+.contact-section {
+    padding: 4rem 0;
+}
+
+/* Grid-layout för kontaktinnehållet */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr; /* En kolumn på mobil */
+    gap: 3rem;
+}
+
+/* Grid för kontaktinformation */
+.contact-items {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Rad för varje kontaktuppgift */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+/* Ikon för varje kontaktuppgift */
+.contact-icon {
+    font-size: 1.5rem;
+    background-color: #dc2626;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Förhindrar att ikonen krymper */
+}
+
+/* Rubrik för varje kontaktuppgift */
+.contact-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+/* Text för varje kontaktuppgift */
+.contact-text {
+    color: #6b7280;
+}
+
+/* ===== KONTAKTFORMULÄR ===== */
+/* Grid-layout för formuläret */
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Varje rad i formuläret */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etikett för varje fält */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+/* Textfält och textområde */
+.form-input,
+.form-textarea {
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Fokus-effekt för fält */
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+}
+
+/* Skicka-knapp */
+.form-button {
+    background-color: #dc2626;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Mörkare röd vid hover */
+.form-button:hover {
+    background-color: #b91c1c;
+}
+
+/* ===== KART-SEKTION ===== */
+/* Ljusgrå bakgrund för kart-sektionen */
+.map-section {
+    padding: 4rem 0;
+    background-color: #f9fafb;
+}
+
+/* Container för kartan */
+.map-container {
+    margin-top: 2rem;
+}
+
+/* Platshållare för karta */
+.map-placeholder {
+    background-color: #e5e7eb;
+    height: 300px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Text i kartplatshållaren */
+.map-text {
+    color: #6b7280;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* ===== FOOTER ===== */
+/* Svart bakgrund för footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 0 1rem;
+    margin-top: auto; /* Trycker footern till botten */
+}
+
+/* Grid-layout för footer-innehållet */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Rubrik för varje footer-sektion */
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Underrubrik för varje footer-sektion */
+.footer-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Text i footer */
+.footer-text {
+    color: #9ca3af; /* Ljusare grå för bättre kontrast mot svart */
+    margin-bottom: 0.5rem;
+}
+
+/* Nedre delen av footer med copyright */
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+/* Copyright-text */
+.copyright {
+    color: #9ca3af;
+}
+
+/* ===== RESPONSIV DESIGN FÖR DESKTOP ===== */
+@media (min-width: 769px) {
+    /* Två kolumner för hero på desktop */
+    .hero .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Vänsterjusterad text på desktop */
+    .hero-content {
+        text-align: left;
+    }
+
+    /* Större hero-bild på desktop */
+    .hero-image img {
+        height: 400px;
+    }
+
+    /* Två kolumner för om oss-innehåll på desktop */
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Två kolumner för kontaktinnehåll på desktop */
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ===== RESPONSIV DESIGN FÖR STÖRRE SKÄRMAR ===== */
+@media (min-width: 1024px) {
+    /* Större rubrik på större skärmar */
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    /* Tre kolumner för features på större skärmar */
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Fyra kolumner för träningspass på större skärmar */
+    .classes-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Tre kolumner för team på större skärmar */
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
