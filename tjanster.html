@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tjänster - QAZ GYM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen flex-column">
+        <!-- Header -->
+        <header class="header">
+            <div class="container header-container">
+                <a href="index.html" class="logo">QAZ GYM</a>
+
+                <!-- Mobile menu button -->
+                <div class="mobile-menu">
+                    <button class="menu-button" aria-label="Öppna meny">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop navigation -->
+                <nav class="desktop-nav">
+                    <a href="index.html" class="nav-link">Hem</a>
+                    <a href="om-oss.html" class="nav-link">Om oss</a>
+                    <a href="tjanster.html" class="nav-link">Tjänster</a>
+                    <a href="kontakt.html" class="nav-link">Kontakt</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container text-center">
+                <h1 class="page-title">Våra tjänster</h1>
+                <p class="page-subtitle">Utforska vårt breda utbud av träningspass och tjänster</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image-container">
+                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=400" alt="Styrketräning" class="service-image">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Styrketräning</h3>
+                            <p class="service-text">
+                                Våra styrketräningspass fokuserar på att bygga muskler, öka styrka och förbättra din allmänna fysiska
+                                kondition. Passen leds av erfarna tränare som hjälper dig med rätt teknik och anpassar övningarna
+                                efter din nivå.
+                            </p>
+                            <p class="service-schedule">
+                                <strong>Tider:</strong> Måndag, onsdag, fredag kl 18:00-19:00
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image-container">
+                            <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=400" alt="Konditionsträning" class="service-image">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Konditionsträning</h3>
+                            <p class="service-text">
+                                Våra intensiva konditionspass hjälper dig att förbättra din uthållighet, bränna kalorier och öka din
+                                kardiovaskulära hälsa. Passen inkluderar en blandning av högintensiv intervallträning och
+                                uthållighetsövningar.
+                            </p>
+                            <p class="service-schedule">
+                                <strong>Tider:</strong> Tisdag, torsdag kl 17:30-18:30
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image-container">
+                            <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=400" alt="Yoga" class="service-image">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Yoga</h3>
+                            <p class="service-text">
+                                Våra yogaklasser hjälper dig att hitta balans mellan kropp och själ. Fokus ligger på andning,
+                                flexibilitet och styrka. Perfekt för både nybörjare och erfarna yogautövare.
+                            </p>
+                            <p class="service-schedule">
+                                <strong>Tider:</strong> Måndag, onsdag kl 07:00-08:00, lördag kl 10:00-11:00
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image-container">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400" alt="Personlig träning" class="service-image">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Personlig träning</h3>
+                            <p class="service-text">
+                                Få skräddarsydd träning med en av våra erfarna personliga tränare. Vi skapar ett individuellt
+                                träningsprogram baserat på dina mål, förutsättningar och preferenser.
+                            </p>
+                            <p class="service-schedule">
+                                <strong>Tider:</strong> Bokas individuellt
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership Section -->
+        <section class="membership-section">
+            <div class="container">
+                <h2 class="section-title">Medlemskap</h2>
+
+                <div class="membership-grid">
+                    <div class="membership-card">
+                        <h3 class="membership-title">Bas</h3>
+                        <p class="membership-price">299 kr/mån</p>
+                        <ul class="membership-features">
+                            <li>Tillgång till gym 06:00-22:00</li>
+                            <li>Grundläggande utrustning</li>
+                            <li>Omklädningsrum</li>
+                        </ul>
+                        <a href="kontakt.html" class="membership-button">Bli medlem</a>
+                    </div>
+
+                    <div class="membership-card popular">
+                        <div class="popular-tag">POPULÄRAST</div>
+                        <h3 class="membership-title">Standard</h3>
+                        <p class="membership-price">399 kr/mån</p>
+                        <ul class="membership-features">
+                            <li>Tillgång till gym dygnet runt</li>
+                            <li>All utrustning</li>
+                            <li>Gruppträningspass</li>
+                            <li>Omklädningsrum med bastu</li>
+                        </ul>
+                        <a href="kontakt.html" class="membership-button">Bli medlem</a>
+                    </div>
+
+                    <div class="membership-card">
+                        <h3 class="membership-title">Premium</h3>
+                        <p class="membership-price">599 kr/mån</p>
+                        <ul class="membership-features">
+                            <li>Tillgång till gym dygnet runt</li>
+                            <li>All utrustning</li>
+                            <li>Gruppträningspass</li>
+                            <li>Omklädningsrum med bastu</li>
+                            <li>1 PT-session per månad</li>
+                            <li>Tillgång till spa-avdelning</li>
+                        </ul>
+                        <a href="kontakt.html" class="membership-button">Bli medlem</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h2 class="footer-title">QAZ GYM</h2>
+                        <p class="footer-text">Din väg till en starkare och hälsosammare livsstil</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-subtitle">Kontakt</h3>
+                        <p class="footer-text">Shubbar Livs 123</p>
+                        <p class="footer-text">123 45 Stockholm</p>
+                        <p class="footer-text">info@qazgym.se</p>
+                        <p class="footer-text">08 163 63 63</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-subtitle">Öppettider</h3>
+                        <p class="footer-text">Måndag - Fredag: 06:00 - 22:00</p>
+                        <p class="footer-text">Lördag - Söndag: 08:00 - 20:00</p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> QAZ GYM. Alla rättigheter förbehållna.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

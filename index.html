@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QAZ GYM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen flex-column">
+        
+        <!-- Header med logotyp, mobilmeny och navigation -->
+        <header class="header">
+            <div class="container header-container">
+                <a href="index.html" class="logo">QAZ GYM</a>
+
+                <!-- Mobilmeny-knapp -->
+                <div class="mobile-menu">
+                    <button class="menu-button" aria-label="Öppna meny">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop-navigation -->
+                <nav class="desktop-nav">
+                    <a href="index.html" class="nav-link">Hem</a>
+                    <a href="om-oss.html" class="nav-link">Om oss</a>
+                    <a href="tjanster.html" class="nav-link">Tjänster</a>
+                    <a href="kontakt.html" class="nav-link">Kontakt</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero-sektion med välkomsttext och bild -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Välkommen till QAZ GYM</h1>
+                    <p class="hero-text">Din väg till en starkare och hälsosammare livsstil</p>
+                    <a href="kontakt.html" class="cta-button">Bli medlem idag</a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000" alt="Gym träning" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sektion: Varför välja oss -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Varför välja oss?</h2>
+
+                <div class="features-grid">
+                    <!-- Feature: Modern utrustning -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Modern utrustning</h3>
+                        <p class="feature-text">
+                            Vi erbjuder den senaste träningsutrustningen för att hjälpa dig nå dina mål.
+                        </p>
+                    </div>
+
+                    <!-- Feature: Öppet dygnet runt -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Öppet dygnet runt</h3>
+                        <p class="feature-text">Träna när det passar dig bäst. Vi har öppet 24/7 för våra medlemmar.</p>
+                    </div>
+
+                    <!-- Feature: Professionella tränare -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Professionella tränare</h3>
+                        <p class="feature-text">
+                            Våra erfarna tränare hjälper dig att nå dina träningsmål på ett säkert sätt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sektion: Träningspass -->
+        <section class="classes">
+            <div class="container">
+                <h2 class="section-title">Våra träningspass</h2>
+
+                <div class="classes-grid">
+                    <!-- Träningspasskort -->
+                    <div class="class-card">
+                        <h3 class="class-title">Styrketräning</h3>
+                        <p class="class-text">
+                            Fokusera på att bygga styrka och muskler med våra styrketräningspass.
+                        </p>
+                        <a href="tjanster.html" class="class-link">Läs mer →</a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3 class="class-title">Konditionsträning</h3>
+                        <p class="class-text">
+                            Förbättra din uthållighet och kondition med våra intensiva konditionspass.
+                        </p>
+                        <a href="tjanster.html" class="class-link">Läs mer →</a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3 class="class-title">Yoga</h3>
+                        <p class="class-text">
+                            Hitta balans mellan kropp och själ med våra avslappnande yogaklasser.
+                        </p>
+                        <a href="tjanster.html" class="class-link">Läs mer →</a>
+                    </div>
+
+                    <div class="class-card">
+                        <h3 class="class-title">Personlig träning</h3>
+                        <p class="class-text">Få skräddarsydd träning med en av våra erfarna personliga tränare.</p>
+                        <a href="tjanster.html" class="class-link">Läs mer →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidfoten -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <!-- Info om företaget -->
+                    <div class="footer-section">
+                        <h2 class="footer-title">QAZ GYM</h2>
+                        <p class="footer-text">Din väg till en starkare och hälsosammare livsstil</p>
+                    </div>
+
+                    <!-- Kontaktinformation -->
+                    <div class="footer-section">
+                        <h3 class="footer-subtitle">Kontakt</h3>
+                        <p class="footer-text">Shubbar Livs 123</p>
+                        <p class="footer-text">123 45 Stockholm</p>
+                        <p class="footer-text">info@qazgym.se</p>
+                        <p class="footer-text">08 163 63 63</p>
+                    </div>
+
+                    <!-- Öppettider -->
+                    <div class="footer-section">
+                        <h3 class="footer-subtitle">Öppettider</h3>
+                        <p class="footer-text">Måndag - Fredag: 06:00 - 22:00</p>
+                        <p class="footer-text">Lördag - Söndag: 08:00 - 20:00</p>
+                    </div>
+                </div>
+
+                <!-- Kopieringsskydd längst ner -->
+                <div class="footer-bottom">
+                    <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> QAZ GYM. Alla rättigheter förbehållna.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
